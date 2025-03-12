@@ -12,7 +12,8 @@ var (
 ```
 # Navigate to project directory
 ```
-cd /opt/ansible-dashboard
+git clone https://github.com/frozendark01/go-ansible.git
+cd /ansible-dashboard
 ```
 # Build the Go application
 ```
