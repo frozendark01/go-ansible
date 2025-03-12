@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansible Playbooks Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Ansible Playbooks Dashboard</h1>
+            <button id="refreshBtn" class="btn primary">Refresh Playbooks</button>
+        </header>
+        
+        <main>
+            <div class="playbooks-container">
+                <h2>Available Playbooks</h2>
+                <div id="playbooks-list" class="card-grid"></div>
+            </div>
+            
+            <div class="details-container" id="details-panel">
+                <h2>Execution Details</h2>
+                <div class="card">
+                    <div id="execution-details">
+                        <p class="select-playbook-msg">Select a playbook to view details</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Ansible Dashboard - v1.0</p>
+        </footer>
+    </div>
+    
+    <div id="toast" class="toast"></div>
+    
+    <script src="/static/main.js"></script>
+</body>
+</html>
