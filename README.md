@@ -37,8 +37,8 @@ After=network.target
 [Service]
 Type=simple
 User=your_user  # Replace with appropriate user
-WorkingDirectory=/opt/ansible-dashboard
-ExecStart=/opt/ansible-dashboard/ansible-dashboard
+WorkingDirectory=/path/to/your/ansible-dashboard # Change this to your actual path
+ExecStart=/path/to/your/ansible-dashboard/ansible-dashboard # Change this to your actual path
 Restart=on-failure
 
 [Install]
