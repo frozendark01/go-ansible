@@ -30,7 +30,7 @@ type PlaybookResult struct {
 }
 
 var (
-	playbooksDir  = "/root/ansible/playbooks" // Default directory, change as needed
+	playbooksDir  = "/etc/ansible/playbooks" // Default directory, change as needed
 	playbooks     = []PlaybookInfo{}
 	playbackCache = map[string]PlaybookResult{}
 )
