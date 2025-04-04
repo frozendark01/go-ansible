@@ -53,9 +53,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             let lastRunInfo = 'Never run';
-            if (playbook.lastRunTime) {
-                const date = new Date(playbook.lastRunTime);
-                lastRunInfo = formatDate(date);
+            if (playbook.lastRunTime && playbook.lastRunTime !== '2011-05-01T00:00:00Z') {
+                try {
+                    const date = new Date(playbook.lastRunTime);
+                    // Check if the date is valid
+                    if (!isNaN(date.getTime())) {
+                        lastRunInfo = formatDate(date);
+                    }
+                } catch (e) {
+                    console.error('Error parsing date:', e);
+                }
             }
             
             card.innerHTML = `
@@ -182,6 +189,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (playbook) {
                         const status = playbook.status === 'Success' ? 'success' : 'error';
                         showToast(`Playbook ${playbookName} completed: ${playbook.status}`, status);
+                        
+                        // Force a refresh of the playbooks data
+                        setTimeout(fetchPlaybooks, 1000);
                     }
                 }
             })
@@ -193,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Utility functions
     function showLoading(button) {
         if (!button) return;
+        button.dataset.originalText = button.innerHTML; // Save the original text
         button.disabled = true;
         button.innerHTML = 'Loading...';
     }
